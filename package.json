@@ -1,0 +1,43 @@
+{
+  "name": "@ngwam/ngx-generate-pwa-icons",
+  "version": "1.0.0",
+  "description": "A schematic to generate a set of the standard angular pwa icons from a specific image.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics",
+    "angular",
+    "pwa",
+    "icons",
+    "icon"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web-app-merchants/ngx-generate-pwa-icons"
+  },
+  "author": "Tayamba Mwanza",
+  "license": "MIT",
+  "shchematics": "./src/collection.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.3.0",
+    "typescript": "^4.9.5",
+    "jimp": "0.22.10",
+    "to-ico": "1.1.5"
+  },
+  "peerDependencies": {
+    "@angular-devkit/schematics": ">=12.0.0",
+    "@angular/cdk": ">=12.0.0",
+    "@angular/common": ">=12.0.0",
+    "@angular/core": ">=12.0.0",
+    "@schematics/angular": ">=12.0.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^18.18.0",
+    "@types/to-ico": "^1.1.3",
+    "jasmine": "^5.0.0"
+  }
+}

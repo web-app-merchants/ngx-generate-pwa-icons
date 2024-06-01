@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NgxGeneratePwaIcons",
+  "title": "Ngx Generate PWA Icons",
+  "type": "object",
+  "properties": {
+    "projectName": {
+      "type": "string",
+      "description": "The name of the project.",
+      "x-prompt": "Enter project name"
+    }
+  },
+  "required": [
+    "projectName"
+  ]
+}
