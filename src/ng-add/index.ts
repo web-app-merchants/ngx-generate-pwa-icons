@@ -80,11 +80,22 @@ function addFaviconToRootFolder(project: ProjectDefinition): Rule {
     const assetFolder = tree.exists(`${sourceRoot}/assets`) ? `${sourceRoot}/assets` : 'public';
     const iconsFolder = `${assetFolder}/icons`;
 
-    const faviconContents = [
-      await fs.readFile(`${iconsFolder}/icon-16x16.png`),
-      await fs.readFile(`${iconsFolder}/icon-32x32.png`),
-      await fs.readFile(`${iconsFolder}/icon-48x48.png`)
-    ];
+    const faviconContents: Buffer[] = [];
+
+    const icon16 = await fs.readFile(`${iconsFolder}/icon-16x16.png`);
+    if (icon16) {
+      faviconContents.push(icon16);
+    }
+
+    const icon32 = await fs.readFile(`${iconsFolder}/icon-32x32.png`);
+    if (icon32) {
+      faviconContents.push(icon32);
+    }
+
+    const icon48 = await fs.readFile(`${iconsFolder}/icon-48x48.png`);
+    if (icon48) {
+      faviconContents.push(icon48);
+    }
 
     const favicon = await toIco(faviconContents);
 
