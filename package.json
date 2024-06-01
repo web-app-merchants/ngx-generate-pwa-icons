@@ -19,7 +19,7 @@
   },
   "author": "Tayamba Mwanza",
   "license": "MIT",
-  "shchematics": "./src/collection.json",
+  "schematics": "./src/collection.json",
   "sideEffects": false,
   "dependencies": {
     "tslib": "^2.3.0",
