@@ -1,6 +1,6 @@
 {
   "name": "@ngwam/ngx-generate-pwa-icons",
-  "version": "1.0.2",
+  "version": "1.5.0",
   "description": "A schematic to generate a set of the standard angular pwa icons from a specific image.",
   "scripts": {
     "build": "tsc -p tsconfig.json",

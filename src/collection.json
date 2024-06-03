@@ -5,6 +5,20 @@
       "description": "Generate pwa icons in a project",
       "factory": "./ng-add/index",
       "schema": "./ng-add/schema.json"
+    },
+    "ng-add-setup-project-icons": {
+      "description": "Generates icons for specified project",
+      "private": true,
+      "factory": "./ng-add/setup-project-icons",
+      "schema": "./ng-add/schema.json",
+      "hidden": true
+    },
+    "ng-add-setup-project-favicon": {
+      "description": "Generates icons for specified project",
+      "private": true,
+      "factory": "./ng-add/setup-project-favicon",
+      "schema": "./ng-add/schema.json",
+      "hidden": true
     }
   }
 }
