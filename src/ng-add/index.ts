@@ -1,6 +1,6 @@
 import {Rule, SchematicContext, Tree} from '@angular-devkit/schematics';
 import {NodePackageInstallTask, RunSchematicTask} from '@angular-devkit/schematics/tasks';
-import {addPackageToPackageJson} from './package-config';
+import {addDevPackageToPackageJson} from './package-config';
 import {Schema} from './schema.interface';
 
 export default function (options: Schema): Rule {
@@ -8,8 +8,8 @@ export default function (options: Schema): Rule {
     const {projectName} = options;
 
     if (projectName) {
-      addPackageToPackageJson(host, 'jimp', '0.22.10');
-      addPackageToPackageJson(host, 'to-ico', '1.1.5');
+      addDevPackageToPackageJson(host, 'jimp', '0.22.10');
+      addDevPackageToPackageJson(host, 'to-ico', '1.1.5');
 
       const installTaskId = context.addTask(new NodePackageInstallTask());
       const setupProjectIconsTaskID = context.addTask(new RunSchematicTask('ng-add-setup-project-icons', options), [installTaskId]);

@@ -12,7 +12,8 @@ export default function (options: Schema): Rule {
 
         const project = getProjectFromWorkspace(workspace, projectName);
         const sourceRoot = project.sourceRoot;
-        const assetFolder = tree.exists(`${sourceRoot}/assets`) ? `${sourceRoot}/assets` : 'public';
+        const assetsDirectory = tree.getDir(`${sourceRoot}/assets`);
+        const assetFolder = (assetsDirectory.subfiles.length !== 0 && assetsDirectory.subdirs.length !== 0) ? `${sourceRoot}/assets` : 'public';
         const logoPath = `${assetFolder}/logo.png`;
 
         const hasLogoInAssets = tree.exists(logoPath);

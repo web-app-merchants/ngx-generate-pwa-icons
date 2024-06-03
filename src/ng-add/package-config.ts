@@ -10,6 +10,7 @@ import {Tree} from '@angular-devkit/schematics';
 
 interface PackageJson {
     dependencies: Record<string, string>;
+    devDependencies: Record<string, string>;
 }
 
 /**
@@ -38,6 +39,27 @@ export function addPackageToPackageJson(host: Tree, pkg: string, version: string
         if (!json.dependencies[pkg]) {
             json.dependencies[pkg] = version;
             json.dependencies = sortObjectByKeys(json.dependencies);
+        }
+
+        host.overwrite('package.json', JSON.stringify(json, null, 2));
+    }
+
+    return host;
+}
+
+/** Adds a package to the package.json devDependencies in the given host tree. */
+export function addDevPackageToPackageJson(host: Tree, pkg: string, version: string): Tree {
+    if (host.exists('package.json')) {
+        const sourceText = host.read('package.json')!.toString('utf-8');
+        const json = JSON.parse(sourceText) as PackageJson;
+
+        if (!json.devDependencies) {
+            json.devDependencies = {};
+        }
+
+        if (!json.devDependencies[pkg]) {
+            json.devDependencies[pkg] = version;
+            json.devDependencies = sortObjectByKeys(json.devDependencies);
         }
 
         host.overwrite('package.json', JSON.stringify(json, null, 2));

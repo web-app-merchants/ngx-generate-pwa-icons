@@ -1,6 +1,6 @@
 {
   "name": "@ngwam/ngx-generate-pwa-icons",
-  "version": "1.6.0",
+  "version": "1.6.5",
   "description": "A schematic to generate a set of the standard angular pwa icons from a specific image.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -21,6 +21,9 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "sideEffects": false,
+  "ng-add": {
+    "save": false
+  },
   "dependencies": {
     "tslib": "^2.3.0",
     "typescript": "^4.9.5",

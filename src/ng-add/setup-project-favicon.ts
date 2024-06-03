@@ -52,13 +52,15 @@ export default function (options: Schema): Rule {
             await fs.unlink(`${assetFolder}/favicon.ico`);
         }
 
-        await fs.writeFile(`${sourceRoot}/favicon.ico`, favicon);
-        context.logger.info(`✓ ${sourceRoot}/favicon.ico`);
+        if (faviconContents.length > 0) {
+            await fs.writeFile(`${sourceRoot}/favicon.ico`, favicon);
+            context.logger.info(`✓ ${sourceRoot}/favicon.ico`);
 
-        await fs.writeFile(`${assetFolder}/favicon.ico`, favicon);
-        context.logger.info(`✓ ${assetFolder}/favicon.ico`);
+            await fs.writeFile(`${assetFolder}/favicon.ico`, favicon);
+            context.logger.info(`✓ ${assetFolder}/favicon.ico`);
 
-        context.logger.info(`★ Finished`);
+            context.logger.info(`★ Finished`);
+        }
 
         return;
     };
