@@ -35,15 +35,14 @@ export default function (options: Schema): Rule {
                         const resizedJimpIcon = jimpLogo.resize(size, size);
 
                         if (iconName === 'icon-180x180.png') {
-
-                            resizedJimpIcon.write(`${assetFolder}/apple-touch-icon.png`);
+                            await resizedJimpIcon.writeAsync(`${assetFolder}/apple-touch-icon.png`);
                             context.logger.info(`✓ ${assetFolder}/apple-touch-icon.png`);
 
-                            resizedJimpIcon.write(`${sourceRoot}/apple-touch-icon.png`);
+                            await resizedJimpIcon.writeAsync(`${sourceRoot}/apple-touch-icon.png`);
                             context.logger.info(`✓ ${sourceRoot}/apple-touch-icon.png`);
 
                         } else {
-                            resizedJimpIcon.write(iconPath);
+                            await resizedJimpIcon.writeAsync(iconPath);
                             context.logger.info(`✓ ${iconPath}`);
                         }
                     }
